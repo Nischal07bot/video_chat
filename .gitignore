@@ -1,0 +1,53 @@
+# Node.js dependencies
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache directory
+.npm
+
+# Build outputs
+/client/build/
+/server/dist/
+/dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+/coverage/
+
+# Optional editor or system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Webpack or bundler caches
+.cache/
+.parcel-cache/
+
+# MacOS
+.AppleDouble
+.LSOverride
+
+# Misc
+*.tgz
+.pnp
+.pnp.js
+
+# React specific
+/client/.pnp
+/client/.pnp.js
