@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import {Routes,Route} from 'react-router-dom'
 import Lobby from './screen/lobby'
+import {SocketProvider} from './screen/Context/SocketProvide'
 function App() {
   const [count, setCount] = useState(0)
 
