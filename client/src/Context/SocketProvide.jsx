@@ -1,5 +1,5 @@
 import React from "react";
-import {createContext,useContext,useMemo} from "react";
+import {createContext,useContext,useMemo,useEffect,useRef} from "react";
 import {io} from "socket.io-client";
 const SocketContext=createContext(null);
 export const useSocket=()=>{
@@ -10,10 +10,14 @@ export const useSocket=()=>{
     return socket;
 }
 export const SocketProvider=(props)=>{
+     const socket=useRef(null);
+    if(!socket.current)
+    {
+        socket.current=io("http://localhost:3000");
+    }
 
-    const socket=useMemo(()=>io("http://localhost:3000"),[])
      return(
-        <SocketContext.Provider value={socket}>
+        <SocketContext.Provider value={socket.current}>
             {props.children}
         </SocketContext.Provider>
      )
