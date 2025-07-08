@@ -27,6 +27,16 @@ io.on("connection",(socket)=>{
         socket.join(room);
         io.to(socket.id).emit("room:join",data);
     })
+    socket.on("calluser",(data)=>{
+        console.log("calluser received",data.to);
+        io.to(data.to).emit("incomingcall",{
+            from:socket.id,
+            offer:data.offer
+        })
+    })
+    socket.on("callaccepted",(data)=>{
+        io.to(data.to).emit("callaccepted",{from:socket.id,answer:data.answer});
+    })
 })
 server.listen(3000,()=>{
     console.log("server is running on port 3000");
